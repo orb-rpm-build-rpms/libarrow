@@ -31,7 +31,7 @@
 
 Name:		libarrow
 Version:	12.0.1
-Release:	3%{?dist}
+Release:	4%{?dist}
 Summary:	A toolbox for accelerated data interchange and in-memory processing
 License:	Apache-2.0
 URL:		https://arrow.apache.org/
@@ -864,6 +864,9 @@ export LD_LIBRARY_PATH='%{buildroot}%{_libdir}'
 #--------------------------------------------------------------------
 
 %changelog
+* Thu Jul 20 2023 Fedora Release Engineering <releng@fedoraproject.org> - 12.0.1-4
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_39_Mass_Rebuild
+
 * Sun Jun 18 2023  Kaleb S. KEITHLEY <kkeithle [at] redhat.com> - 12.0.1-3
 - Rebuilt for Python 3.12 and thrift-0.15.0
 
