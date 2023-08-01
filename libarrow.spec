@@ -736,7 +736,7 @@ Development files for python3-pyarrow
 #--------------------------------------------------------------------
 
 %prep
-%autosetup -p1 -n apache-arrow-%{version}
+%autosetup -p1 -n arrow-apache-arrow-%{version}
 # We do not need to (nor can we) build for an old version of numpy:
 sed -r -i 's/(oldest-supported-)(numpy)/\2/' python/pyproject.toml
 
