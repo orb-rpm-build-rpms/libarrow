@@ -68,6 +68,7 @@ BuildRequires:	openssl-devel
 BuildRequires:	pkgconfig
 BuildRequires:	python%{python3_pkgversion}-devel
 BuildRequires:	python%{python3_pkgversion}-numpy
+BuildRequires:	python3dist(cython) < 3~~
 BuildRequires:	xsimd-devel
 BuildRequires:	abseil-cpp-devel
 BuildRequires:	c-ares-devel
@@ -867,6 +868,7 @@ export LD_LIBRARY_PATH='%{buildroot}%{_libdir}'
 %changelog
 * Tue Aug 1 2023  Kaleb S. KEITHLEY <kkeithle [at] redhat.com> - 13.0.0-1
 - Arrow 13.0.0 GA, rhbz#2224127
+- and back to cython 0.29.31
 
 * Tue Jul 25 2023  Kaleb S. KEITHLEY <kkeithle [at] redhat.com> - 12.0.1-6
 - rebuild with Cython 3
