@@ -868,7 +868,7 @@ export LD_LIBRARY_PATH='%{buildroot}%{_libdir}'
 #--------------------------------------------------------------------
 
 %changelog
-* Thu Nov 1 2023  Kaleb S. KEITHLEY <kkeithle [at] redhat.com> - 14.0.0-1
+* Wed Nov 1 2023  Kaleb S. KEITHLEY <kkeithle [at] redhat.com> - 14.0.0-1
 - Arrow 14.0.0 GA, rhbz#2244967, and w/ Cython3 again
 
 * Tue Aug 29 2023 Benjamin A. Beasley <code@musicinmybrain.net> - 13.0.0-3
