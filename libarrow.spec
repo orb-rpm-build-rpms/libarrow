@@ -31,7 +31,7 @@
 
 Name:		libarrow
 Version:	14.0.0
-Release:	1%{?dist}
+Release:	2%{?dist}
 Summary:	A toolbox for accelerated data interchange and in-memory processing
 License:	Apache-2.0
 URL:		https://arrow.apache.org/
@@ -868,6 +868,9 @@ export LD_LIBRARY_PATH='%{buildroot}%{_libdir}'
 #--------------------------------------------------------------------
 
 %changelog
+* Wed Nov 1 2023  Kaleb S. KEITHLEY <kkeithle [at] redhat.com> - 14.0.0-2
+- Rebuild for ceph for gtest 1.14.0
+
 * Wed Nov 1 2023  Kaleb S. KEITHLEY <kkeithle [at] redhat.com> - 14.0.0-1
 - Arrow 14.0.0 GA, rhbz#2244967, and w/ Cython3 again
 
