@@ -30,15 +30,13 @@
 %bcond_without have_utf8proc
 
 Name:		libarrow
-Version:	15.0.2
-Release:	3%{?dist}
+Version:	16.0.0
+Release:	1%{?dist}
 Summary:	A toolbox for accelerated data interchange and in-memory processing
 License:	Apache-2.0
 URL:		https://arrow.apache.org/
 Requires:	%{name}-doc = %{version}-%{release}
 Source0:	https://dist.apache.org/repos/dist/release/arrow/arrow-%{version}/apache-arrow-%{version}.tar.gz
-Patch0001:	0001-python-pyproject.toml.patch
-Patch0002:	0002-cpp-src-arrow-util-key_value_metadata.patch
 
 # Apache ORC (liborc) has numerous compile errors and apparently assumes
 # a 64-bit build and runtime environment. This is only consumer of the liborc
@@ -114,6 +112,12 @@ BuildArch:	noarch
 
 %description doc
 Documentation files for Apache Arrow C++.
+
+Obsoletes:	%{name}-glib-doc < %{version}-%{release}
+Obsoletes:	%{name}-dataset-glib-doc < %{version}-%{release}
+Obsoletes:	%{name}-parquet-glib-doc < %{version}-%{release}
+Obsoletes:	plasma-glib-doc < %{version}-%{release}
+Obsoletes:	gandiva-glib-doc < %{version}-%{release}
 
 %files doc
 %license LICENSE.txt
@@ -495,26 +499,10 @@ Libraries and header files for Apache Arrow GLib.
 %{_libdir}/pkgconfig/arrow-glib.pc
 %{_libdir}/pkgconfig/arrow-orc-glib.pc
 %dir %{_datadir}/arrow-glib/
-     %{_datadir}/arrow-glib/example/*
+     %{_datadir}/arrow-glib/*
 %dir %{_datadir}/gir-1.0/
      %{_datadir}/gir-1.0/Arrow-1.0.gir
      %{_datadir}/gir-1.0/ArrowFlight-1.0.gir
-
-#--------------------------------------------------------------------
-
-%package glib-doc
-Summary:	Documentation for Apache Arrow GLib
-
-%description glib-doc
-Documentation for Apache Arrow GLib.
-
-%files glib-doc
-%dir %{_datadir}/gtk-doc/
-%dir %{_datadir}/gtk-doc/html/
-%dir %{_datadir}/gtk-doc/html/arrow-glib/
-     %{_datadir}/gtk-doc/html/arrow-glib/*
-%dir %{_datadir}/gtk-doc/html/arrow-flight-glib/
-     %{_datadir}/gtk-doc/html/arrow-flight-glib/*
 
 #--------------------------------------------------------------------
 
@@ -555,18 +543,6 @@ Libraries and header files for Apache Arrow dataset GLib.
 
 #--------------------------------------------------------------------
 
-%package dataset-glib-doc
-Summary:	Documentation for Apache Arrow dataset GLib
-
-%description dataset-glib-doc
-Documentation for Apache Arrow dataset GLib.
-
-%files dataset-glib-doc
-%dir %{_datadir}/gtk-doc/html/arrow-dataset-glib/
-     %{_datadir}/gtk-doc/html/arrow-dataset-glib/*
-
-#--------------------------------------------------------------------
-
 %if %{with use_gandiva}
 %package -n gandiva-glib-libs
 Summary:	Runtime libraries for Gandiva GLib
@@ -599,18 +575,6 @@ Libraries and header files for Gandiva GLib.
 %{_libdir}/pkgconfig/gandiva-glib.pc
 %dir %{_datadir}/gir-1.0/
      %{_datadir}/gir-1.0/Gandiva-1.0.gir
-
-#--------------------------------------------------------------------
-
-%package -n gandiva-glib-doc
-Summary:	Documentation for Gandiva GLib
-
-%description -n gandiva-glib-doc
-Documentation for Gandiva GLib.
-
-%files -n gandiva-glib-doc
-%dir %{_datadir}/gtk-doc/html/gandiva-glib/
-     %{_datadir}/gtk-doc/html/gandiva-glib/*
 %endif
 
 %if %{with use_plasma}
@@ -648,18 +612,6 @@ Libraries and header files for Plasma GLib.
 %{_libdir}/pkgconfig/plasma-glib.pc
 %dir %{_datadir}/gir-1.0/
      %{_datadir}/gir-1.0/Plasma-1.0.gir
-
-#--------------------------------------------------------------------
-
-%package -n plasma-glib-doc
-Summary:	Documentation for Plasma GLib
-
-%description -n plasma-glib-doc
-Documentation for Plasma GLib.
-
-%files -n plasma-glib-doc
-%dir %{_datadir}/gtk-doc/html/plasma-glib/
-     %{_datadir}/gtk-doc/html/plasma-glib/*
 %endif
 
 #--------------------------------------------------------------------
@@ -700,16 +652,6 @@ Libraries and header files for Apache Parquet GLib.
      %{_datadir}/gir-1.0/Parquet-1.0.gir
 
 #--------------------------------------------------------------------
-
-%package -n parquet-glib-doc
-Summary:	Documentation for Apache Parquet GLib
-
-%description -n parquet-glib-doc
-Documentation for Apache Parquet GLib.
-
-%files -n parquet-glib-doc
-%dir %{_datadir}/gtk-doc/html/parquet-glib/
-     %{_datadir}/gtk-doc/html/parquet-glib/*
 
 %package -n python3-pyarrow
 Summary: Python library for Apache Arrow
@@ -873,6 +815,11 @@ export LD_LIBRARY_PATH='%{buildroot}%{_libdir}'
 #--------------------------------------------------------------------
 
 %changelog
+* Mon Apr 22 2024  Kaleb S. KEITHLEY <kkeithle [at] redhat.com> - 16.0.0-1
+- Arrow 16.0.0 GA
+- N.B. See https://github.com/apache/arrow/issues/40604, it appears that
+  the ABI break is not (will not be) fixed.
+
 * Mon Mar 25 2024  Kaleb S. KEITHLEY <kkeithle [at] redhat.com> - 15.0.2-3
 - rebuild with liborc-2.0.0-2 (liborc1 -> liborc2)
 
