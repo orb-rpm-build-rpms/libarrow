@@ -30,7 +30,7 @@
 %bcond_without have_utf8proc
 
 Name:		libarrow
-Version:	16.0.0
+Version:	16.1.0
 Release:	1%{?dist}
 Summary:	A toolbox for accelerated data interchange and in-memory processing
 License:	Apache-2.0
@@ -815,6 +815,9 @@ export LD_LIBRARY_PATH='%{buildroot}%{_libdir}'
 #--------------------------------------------------------------------
 
 %changelog
+* Tue May 14 2024  Kaleb S. KEITHLEY <kkeithle [at] redhat.com> - 16.1.0-1
+- Arrow 16.1.0 GA
+
 * Mon Apr 22 2024  Kaleb S. KEITHLEY <kkeithle [at] redhat.com> - 16.0.0-1
 - Arrow 16.0.0 GA
 - N.B. See https://github.com/apache/arrow/issues/40604, it appears that
