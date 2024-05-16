@@ -31,7 +31,7 @@
 
 Name:		libarrow
 Version:	16.1.0
-Release:	1%{?dist}
+Release:	2%{?dist}
 Summary:	A toolbox for accelerated data interchange and in-memory processing
 License:	Apache-2.0
 URL:		https://arrow.apache.org/
@@ -220,7 +220,6 @@ Libraries and header files for Apache Arrow dataset.
 Summary:	C++ library for fast data transport
 Requires:	%{name}%{?_isa} = %{version}-%{release}
 Requires:	%{name}-doc = %{version}-%{release}
-Requires:	openssl
 
 %description acero-libs
 This package contains the libraries for Apache Arrow Acero.
@@ -250,7 +249,6 @@ Libraries and header files for Apache Arrow Acero.
 Summary:	C++ library for fast data transport
 Requires:	%{name}%{?_isa} = %{version}-%{release}
 Requires:	%{name}-doc = %{version}-%{release}
-Requires:	openssl
 
 %description flight-libs
 This package contains the libraries for Apache Arrow Flight.
@@ -437,7 +435,6 @@ Summary:	Runtime libraries for Apache Parquet C++
 Requires:	boost-program-options
 Requires:	%{name}%{?_isa} = %{version}-%{release}
 Requires:	%{name}-doc = %{version}-%{release}
-Requires:	openssl
 
 %description -n parquet-libs
 This package contains the libraries for Apache Parquet C++.
@@ -815,6 +812,9 @@ export LD_LIBRARY_PATH='%{buildroot}%{_libdir}'
 #--------------------------------------------------------------------
 
 %changelog
+* Thu May 16 2024 Yaakov Selkowitz <yselkowi@redhat.com> - 16.1.0-2
+- Remove extraneous openssl dependencies
+
 * Tue May 14 2024  Kaleb S. KEITHLEY <kkeithle [at] redhat.com> - 16.1.0-1
 - Arrow 16.1.0 GA
 
