@@ -31,7 +31,7 @@
 
 Name:		libarrow
 Version:	16.1.0
-Release:	2%{?dist}
+Release:	3%{?dist}
 Summary:	A toolbox for accelerated data interchange and in-memory processing
 License:	Apache-2.0
 URL:		https://arrow.apache.org/
@@ -812,6 +812,9 @@ export LD_LIBRARY_PATH='%{buildroot}%{_libdir}'
 #--------------------------------------------------------------------
 
 %changelog
+* Sun Jun 02 2024 Orion Poplawski <orion@nwra.com> - 16.1.0-3
+- Rebuild with thrift 0.20
+
 * Thu May 16 2024 Yaakov Selkowitz <yselkowi@redhat.com> - 16.1.0-2
 - Remove extraneous openssl dependencies
 
