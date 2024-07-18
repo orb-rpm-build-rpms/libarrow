@@ -31,7 +31,7 @@
 
 Name:		libarrow
 Version:	16.1.0
-Release:	5%{?dist}
+Release:	6%{?dist}
 Summary:	A toolbox for accelerated data interchange and in-memory processing
 License:	Apache-2.0
 URL:		https://arrow.apache.org/
@@ -813,6 +813,9 @@ export LD_LIBRARY_PATH='%{buildroot}%{_libdir}'
 #--------------------------------------------------------------------
 
 %changelog
+* Thu Jul 18 2024 Fedora Release Engineering <releng@fedoraproject.org> - 16.1.0-6
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_41_Mass_Rebuild
+
 * Tue Jun 18 2024  Kaleb S. KEITHLEY <kkeithle [at] redhat.com> - 16.1.0-5
 - Arrow 16.1.0, rebuild with liborc-2.0.1 (after liborc1 -> liborc2)
 
