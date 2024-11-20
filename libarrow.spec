@@ -761,11 +761,7 @@ pushd cpp
   -DARROW_WITH_ZSTD:BOOL=ON \
   -DARROW_USE_XSIMD:BOOL=ON \
   -DARROW_BUILD_STATIC:BOOL=OFF \
-%ifarch aarch64
-  -DARROW_BUILD_TESTS:BOOL=OFF \
-%else
   -DARROW_BUILD_TESTS:BOOL=ON \
-%endif
   -DCMAKE_BUILD_TYPE=RelWithDebInfo \
   -DCMAKE_COLOR_MAKEFILE:BOOL=OFF \
   -DARROW_USE_CCACHE:BOOL=OFF \
@@ -836,6 +832,8 @@ popd
 
 
 %check
+%ifnarch aarch64
+# https://github.com/apache/arrow/issues/12681
 export \
   ARROW_TEST_DATA=$PWD/arrow-testing-%{arrow_test_data_commit}/data \
   PARQUET_TEST_DATA=$PWD/parquet-testing-%{parquet_test_data_commit}/data \
@@ -843,6 +841,7 @@ export \
 pushd cpp
 %ctest
 popd
+%endif
 export LD_LIBRARY_PATH='%{buildroot}%{_libdir}'
 # While https://github.com/apache/arrow/pull/13904 partially fixes
 # https://issues.apache.org/jira/browse/ARROW-17389, conftest.py is still
@@ -867,6 +866,8 @@ export LD_LIBRARY_PATH='%{buildroot}%{_libdir}'
 %changelog
 * Sun Nov 17 2024 Elliott Sales de Andrade <quantum.analyst@gmail.com> - 16.1.0-11
 - Enable testing of C++ library
+    see https://src.fedoraproject.org/rpms/libarrow/pull-request/10
+- also rebuild with liborc-2.0.3
 
 * Sun Nov 17 2024 Benjamin A. Beasley <code@musicinmybrain.net> - 16.1.0-11
 - Filter out bogus Provides/Requires from python3-pyarrow; fixes RHBZ#2326774
