@@ -832,7 +832,7 @@ popd
 
 
 %check
-%ifnarch aarch64
+%ifnarch aarch64 ppc64le
 # https://github.com/apache/arrow/issues/12681
 export \
   ARROW_TEST_DATA=$PWD/arrow-testing-%{arrow_test_data_commit}/data \
