@@ -825,7 +825,7 @@ export LD_LIBRARY_PATH='%{buildroot}%{_libdir}'
 #--------------------------------------------------------------------
 
 %changelog
-* Mon Apr 28 2025  Kaleb S. KEITHLEY <kkeithle [at] redhat.com> - 20.0.0-2
+* Wed Jul 9 2025  Kaleb S. KEITHLEY <kkeithle [at] redhat.com> - 20.0.0-2
 - Arrow 20.0.0 GA f43-build-side-114791 and Python-3.14
 
 * Tue Jun 03 2025 Python Maint <python-maint@redhat.com> - 19.0.1-6
