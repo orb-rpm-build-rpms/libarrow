@@ -31,7 +31,7 @@
 
 Name:		libarrow
 Version:	23.0.0
-Release:	0%{?dist}
+Release:	1%{?dist}
 Summary:	A toolbox for accelerated data interchange and in-memory processing
 License:	Apache-2.0
 URL:		https://arrow.apache.org/
@@ -845,6 +845,9 @@ export LD_LIBRARY_PATH='%{buildroot}%{_libdir}'
 #--------------------------------------------------------------------
 
 %changelog
+* Wed Jan 28 2026  Kaleb S. KEITHLEY <kkeithle [at] redhat.com> - 23.0.0-1
+- Arrow 23.0.0 GA f44-build-side-127546
+
 * Fri Jan 16 2026 Fedora Release Engineering <releng@fedoraproject.org> - 22.0.0-3
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_44_Mass_Rebuild
 
