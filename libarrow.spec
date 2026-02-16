@@ -851,7 +851,7 @@ popd
 
 
 %check
-# arrow-compute-aggregate-test fails on aarch64, ppc64le
+%ifnarch s390x
 export \
    ARROW_TEST_DATA=$PWD/arrow-testing-%{arrow_test_data_commit}/data \
    PARQUET_TEST_DATA=$PWD/parquet-testing-%{parquet_test_data_commit}/data \
@@ -859,6 +859,7 @@ export \
 pushd cpp
 %ctest
 popd
+%endif
 export LD_LIBRARY_PATH='%{buildroot}%{_libdir}'
 # While https://github.com/apache/arrow/pull/13904 partially fixes
 # https://issues.apache.org/jira/browse/ARROW-17389, conftest.py is still
