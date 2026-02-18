@@ -30,8 +30,8 @@
 %bcond_without have_utf8proc
 
 Name:		libarrow
-Version:	23.0.0
-Release:	2%{?dist}
+Version:	23.0.1
+Release:	1%{?dist}
 Summary:	A toolbox for accelerated data interchange and in-memory processing
 License:	Apache-2.0
 URL:		https://arrow.apache.org/
@@ -845,6 +845,9 @@ export LD_LIBRARY_PATH='%{buildroot}%{_libdir}'
 #--------------------------------------------------------------------
 
 %changelog
+* Wed Feb 18 2026  Kaleb S. KEITHLEY <kkeithle [at] redhat.com> - 23.0.1-1
+- apache arrow 23.0.1 GA
+
 * Wed Jan 28 2026 Benjamin A. Beasley <code@musicinmybrain.net> - 23.0.0-2
 - Rebuilt for abseil-cpp 20260107.0
 
