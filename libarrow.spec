@@ -36,7 +36,10 @@ Summary:	A toolbox for accelerated data interchange and in-memory processing
 License:	Apache-2.0
 URL:		https://arrow.apache.org/
 Requires:	%{name}-doc = %{version}-%{release}
-Source0:	https://downloads.apache.org/arrow/arrow-%{version}/apache-arrow-%{version}.tar.gz
+# downloads.apache.org only serves current releases and 404s once a version is
+# superseded, so point at archive.apache.org, which retains old releases. The
+# tarball is identical (same SHA512 as in the sources file).
+Source0:	https://archive.apache.org/dist/arrow/arrow-%{version}/apache-arrow-%{version}.tar.gz
 Patch:		0001-python-pyarrow-tests-read_record_patch.py.patch
 Patch:		0002-python-pyarrow-tests-test_ipc.py.patch
 
@@ -845,7 +848,7 @@ export LD_LIBRARY_PATH='%{buildroot}%{_libdir}'
 #--------------------------------------------------------------------
 
 %changelog
-* Thu Sep 11 2026 Gordon Messmer <gmessmer@redhat.com> - 23.0.1-2
+* Fri Sep 11 2026 Gordon Messmer <gmessmer@redhat.com> - 23.0.1-2
 - Rebuild against grpc 1.78.0 for the vLLM localrepo. Fedora's stock 23.0.1
   links Arrow Flight against grpc 1.48.4 (libgrpc.so.26), whose grpc-data
   conflicts with the grpc 1.78.0 that vLLM's grpcio==1.78.0 requires. Rebuilding
