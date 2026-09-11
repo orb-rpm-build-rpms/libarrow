@@ -44,6 +44,7 @@ Source2:	https://github.com/apache/parquet-testing/archive/%{parquet_test_data_c
 Patch:		0001-python-pyarrow-tests-read_record_patch.py.patch
 Patch:		0002-python-pyarrow-tests-test_ipc.py.patch
 Patch:		0003-cpp-src-parquet-CMakeLists.txt.patch
+Patch:		0004-cpp-src-arrow-compute-kernels-CMakeLists.txt.patch
 
 # Apache ORC (liborc) has numerous compile errors and apparently assumes
 # a 64-bit build and runtime environment. This is only consumer of the liborc
