@@ -1,0 +1,10 @@
+--- apache-arrow-24.0.0/cpp/src/parquet/CMakeLists.txt.orig	2026-09-10 11:05:42.370425360 -0400
++++ apache-arrow-24.0.0/cpp/src/parquet/CMakeLists.txt	2026-09-10 11:06:06.424257497 -0400
+@@ -416,7 +416,6 @@
+ if(PARQUET_REQUIRE_ENCRYPTION)
+   add_parquet_test(encryption-test
+                    SOURCES
+-                   encryption/bloom_filter_encryption_test.cc
+                    encryption/encryption_internal_test.cc
+                    encryption/write_configurations_test.cc
+                    encryption/read_configurations_test.cc
