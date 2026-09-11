@@ -31,7 +31,7 @@
 
 Name:		libarrow
 Version:	23.0.1
-Release:	1%{?dist}
+Release:	2%{?dist}
 Summary:	A toolbox for accelerated data interchange and in-memory processing
 License:	Apache-2.0
 URL:		https://arrow.apache.org/
@@ -845,6 +845,12 @@ export LD_LIBRARY_PATH='%{buildroot}%{_libdir}'
 #--------------------------------------------------------------------
 
 %changelog
+* Thu Sep 11 2026 Gordon Messmer <gmessmer@redhat.com> - 23.0.1-2
+- Rebuild against grpc 1.78.0 for the vLLM localrepo. Fedora's stock 23.0.1
+  links Arrow Flight against grpc 1.48.4 (libgrpc.so.26), whose grpc-data
+  conflicts with the grpc 1.78.0 that vLLM's grpcio==1.78.0 requires. Rebuilding
+  here relinks flight-libs and python3-pyarrow against grpc 1.78.
+
 * Wed Feb 18 2026  Kaleb S. KEITHLEY <kkeithle [at] redhat.com> - 23.0.1-1
 - apache arrow 23.0.1 GA
 
